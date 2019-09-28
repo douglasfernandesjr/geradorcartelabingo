@@ -1,0 +1,63 @@
+.site-top {
+    margin: 0 15%;
+    overflow: hidden;
+}
+
+.cartela {
+    display: inline-block;
+    margin: 10px;
+    border: 3px solid black;
+    max-width: 65vw;
+    max-height: 45vw;
+    width: 65vw;
+    height: 45vw;
+    vertical-align: top;
+}
+
+h2.cartela-titulo {
+    height: 5vw;
+    max-height: 5vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid black;
+}
+
+.cartela-corpo {
+    margin: 4px 0 0 0;
+}
+
+.cartela-linha {
+    height: calc(8vw - 3px);
+    display: flex;
+    margin: 0 3px;
+    border-bottom: 2px solid black;
+}
+
+.cartela-linha:last-child {
+    border-bottom-width: 0px
+}
+
+.cartela-casa {
+    max-width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 100%;
+    max-height: 100%;
+    border-collapse: separate;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid black;
+}
+
+.cartela-casa:last-child {
+    border-right-width: 0px
+}
+
+.cartela-casa.cartela-casa-img img {
+    max-width: 100%;
+}
