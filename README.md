@@ -1,6 +1,6 @@
 # Gerador de Cartela de Bingo
 
-Precisar gerar uma cartela de bingo customizada?
+Precisar gerar cartelas de bingo customizada?
 
 [Clique aqui!](https://douglasfernandesjr.github.io/geradorcartelabingo/)
 
