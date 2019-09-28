@@ -2,6 +2,6 @@
 
 Precisar gerar uma cartela de bingo customizada?
 
-(https://douglasfernandesjr.github.io/geradorcartelabingo/)[Clique aqui!]
+[Clique aqui!](https://douglasfernandesjr.github.io/geradorcartelabingo/)
 
 Depois de gerar as cartelas, CTRL + P para imprimir
