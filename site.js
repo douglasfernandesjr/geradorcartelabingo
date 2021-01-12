@@ -1,6 +1,3 @@
-
-
-
 function clickStart() {
     const listaTotal = document.querySelector("#casasBingo").value.split("\n");
     const qtdCartelas = parseInt(document.querySelector("#qtdCartelas").value, 0);
@@ -8,7 +5,7 @@ function clickStart() {
     const imgCartela = document.querySelector("#imgCartela").value;
 
     if (!listaTotal || listaTotal.length < 30) {
-        alert("É necessário uma lista de pelomenos 30 items!");
+        alert("É necessário uma lista de, pelo menos, 30 items!");
         return;
     }
 
@@ -47,19 +44,22 @@ class Gerador {
 
         while (i < 25) {
             if (i == 12) {
-                retorno.push(this.casaImagem);
                 i++;
                 continue;
             }
-            
+
             do {
                 j = getRandomInt(0, this.max);
-            } while (usada[j] === true );
+            } while (usada[j] === true);
 
             usada[j] = true;
             retorno.push(this.listaBase[j]);
             i++;
         }
+        // ordenar os números
+        retorno = retorno.sort((a, b) => parseInt(a.display, 10) - parseInt(b.display, 10));
+        // incluir a casa da imagem no centro da cartela
+        retorno.splice(12, 0, this.casaImagem);
         return retorno;
     }
 }
@@ -70,28 +70,30 @@ class Cartela {
         this.casas = [[], [], [], [], []];
         let i = 0;
         let j = 0;
-        for (const casa of _casas) {
-            this.casas[i][j++] = casa;
-            if (j > 4) {
-                i++; j = 0;
-            }
+        // cria a matriz bidimensional transposta para ordenar corretamente de cima para baixo
+        for (let y = 0; y < 5; y++) {
+            for (let x = y, c = 0; c < 5; x += 5, c++) {
+                this.casas[i][j++] = _casas[x];
+                if (j > 4) {
+                    i++; j = 0;
+                }
 
-            if (i > 4)
-                break;
+                if (i > 4)
+                    break;
+            }
         }
     }
 }
 
 Cartela.prototype.genNode = function () {
-
     let container = document.createElement("div");
     container.classList.add("cartela");
     container.innerHTML = `
-        <h2 class="cartela-titulo">${this.titulo}</h2>
-        <div class="cartela-corpo">
+        <h2 class="cartela-titulo">${this.titulo} </h2>
+            <div class ="cartela-corpo">
             ${this.casas.map((item, i) => `
                 <div class="cartela-linha">
-                    ${item.map((casa, j) => `${casa.genTemplate()}`).join('')}
+                    ${item.map((casa, j) => `${casa.genTemplate()} `).join('')}
                 </div>
             `).join('')}
         </div>`;
@@ -107,10 +109,12 @@ class CasaCartela {
 
 CasaCartela.prototype.genTemplate = function () {
     if (this.tipo == 1)
-        return `<div class="cartela-casa">${this.display}</div>`;
+        return `<div class="cartela-casa">${this.display} </div>`;
     else
-        return `<div class="cartela-casa cartela-casa-img">
-        <img src='${this.display}' />
-        </div>`;
+        return `<div class ="cartela-casa cartela-casa-img"><img src='${this.display}' /></div>`;
 }
 
+document.addEventListener("DOMContentLoaded", function (event) {
+    // gerando 90 números das casas 
+    document.querySelector("#casasBingo").value = Array(90).fill().map((_, index) => index + 1).toString().split(',').join('\n');
+});

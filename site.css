@@ -7,10 +7,10 @@
     display: inline-block;
     margin: 10px;
     border: 3px solid black;
-    max-width: 65vw;
-    max-height: 45vw;
-    width: 65vw;
-    height: 45vw;
+    max-width: 45vw;
+    max-height: 24.5vw;
+    width: 45vw;
+    height: 24.5vw;
     vertical-align: top;
 }
 
@@ -30,7 +30,7 @@ h2.cartela-titulo {
 }
 
 .cartela-linha {
-    height: calc(8vw - 3px);
+    height: calc(4vw - 3px);
     display: flex;
     margin: 0 3px;
     border-bottom: 2px solid black;
@@ -51,7 +51,7 @@ h2.cartela-titulo {
     justify-content: center;
     align-items: center;
     border-right: 2px solid black;
-    font-size: 12px;
+    font-size: 22px;
     line-height: 10px;
     padding: 2px;
 }
@@ -61,8 +61,8 @@ h2.cartela-titulo {
 }
 
 .cartela-casa.cartela-casa-img img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 150%;
+    max-height: 150%;
 }
 
 #output{
