@@ -1,57 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Gerador de Cartela de bingo</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="site.css" />
     <script src="site.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="site-top hidden-print">
-        <div class="page-header">
-            <h1> Gerador de Cartela de Bingo V2</h1>
+      <div class="page-header">
+        <h1>Gerador de Cartela de Bingo V3</h1>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="nomeBingo">Nome do Bingo!</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nomeBingo"
+              placeholder="Digite aqui o nome do seu bingo"
+              value="BINGO"
+            />
+          </div>
+          <div class="form-group">
+            <label for="qtdCartelas">Quantidade de cartelas</label>
+            <input
+              type="number"
+              min="1"
+              max="120"
+              class="form-control"
+              id="qtdCartelas"
+              value="30"
+              placeholder="Digite aqui a quantidade de cartelas"
+            />
+          </div>
+          <div class="form-group">
+            <label for="imgCartela">Url para a imagem central</label>
+            <input
+              type="url"
+              class="form-control"
+              id="imgCartela"
+              placeholder="url para customizar a imagem"
+            />
+          </div>
+          <button class="btn btn-primary" onclick="clickStart()">
+            Gerar Cartelas
+          </button>
+          <button class="btn btn-secondary" onclick="window.print()">
+            Imprimir
+          </button>
         </div>
-        <div class="col-md-12" >
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="nomeBingo">Nome do Bingo!</label>
-                    <input type="text" class="form-control" id="nomeBingo"
-                        placeholder="Digite aqui o nome do seu bingo"
-                        value="BINGO">
-                </div>
-                <div class="form-group" >
-                    <label for="qtdCartelas">Quantidade de cartelas</label>
-                    <input type="number" min="1" max="100" class="form-control" id="qtdCartelas"
-                        value="10"
-                        placeholder="Digite aqui a quantidade de cartelas">
-                </div>
-                <div class="form-group" >
-                        <label for="imgCartela">Url para a imagem central</label>
-                        <input type="url" min="1" max="100" class="form-control" id="imgCartela"
-                            placeholder="url para customizar a imagem">
-                    </div>
-                <button class="btn btn-primary" onclick="clickStart()"> Gerar Cartelas</button>
-                <button class="btn btn-secondary" onclick="window.print()">Imprimir</button>
-                
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="casasBingo">Lista de casas</label>
+            <textarea
+              class="form-control"
+              id="casasBingo"
+              placeholder="Digite aqui a lista de valores das casas"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <div class="radio">
+              <label>
+                <input
+                  type="radio"
+                  name="tipoBingo"
+                  id="tipoBingoId1"
+                  value="1"
+                  checked
+                  onchange="gerarValoresPadroes()"
+                />
+                Bingo Padrão (Numérico)
+              </label>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="casasBingo">Lista de casas</label>
-                    <textarea class="form-control" id="casasBingo"
-                        placeholder="Digite aqui a lista de valores das casas"></textarea>
-                </div>
+            <div class="radio">
+              <label>
+                <input
+                  type="radio"
+                  name="tipoBingo"
+                  id="tipoBingoId2"
+                  value="2"
+                  onchange="gerarValoresPadroes()"
+                />
+                Bingo com Palavras
+              </label>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div id="output">
-
-    </div>
-</body>
-
+    <div id="output"></div>
+  </body>
 </html>
