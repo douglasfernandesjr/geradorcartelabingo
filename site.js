@@ -32,8 +32,8 @@ function gerarValoresPadroes() {
   const valores = document.querySelector("#casasBingo");
 
   if (tipoBingo === 1) {
-    // gerando 60 números das casas
-    valores.value = Array(60)
+    // gerando 90 números das casas
+    valores.value = Array(90)
       .fill()
       .map((_, index) => index + 1)
       .toString()
