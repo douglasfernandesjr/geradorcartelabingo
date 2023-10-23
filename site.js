@@ -71,7 +71,7 @@ class Gerador {
     while (i < 25) {
       let current_column = Math.floor(i/5)
       let min = Math.ceil((this.max / 5) * current_column)
-      let max = Math.floor(this.max/5) + min
+      let max = Math.ceil(this.max/5) + min
       if (i == 12) {
         i++;
         continue;
